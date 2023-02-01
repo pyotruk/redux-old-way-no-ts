@@ -4,7 +4,7 @@ import moment from "moment";
 
 import { getLastCheckedByDomain, getLatencyByDomain, getStatusByDomain } from '../redux/selectors';
 
-export default function ServerStatus({
+function ServerStatus({
   domain,
   latency,
   status
