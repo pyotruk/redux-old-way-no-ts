@@ -1,9 +1,9 @@
 import axios from "axios";
-import store from "../redux/store";
 import { setUptime } from "../redux/actions";
+import { getDomains } from "../redux/selectors";
 
 const checkUptime = async () => {
-  for (const domain of store.getState().domains) {
+  for (const domain of getDomains()) {
     /**
      * This endpoint is a dummy endpoint we have implemented for the purpose of this challenge.
      *

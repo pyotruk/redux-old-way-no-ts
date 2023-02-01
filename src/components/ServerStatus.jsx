@@ -6,13 +6,14 @@ import { getLastCheckedByDomain, getLatencyByDomain, getStatusByDomain } from '.
 
 function ServerStatus({
   domain,
+  lastChecked,
   latency,
   status
 }) {
   return (
     <div className="status">
       <div>{domain}</div>
-      <div>{moment().format('HH:mm:ss')}</div>
+      <div>{moment(lastChecked).format('HH:mm:ss')}</div>
       <div>{latency}</div>
       <div>{status}</div>
     </div>

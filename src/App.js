@@ -3,6 +3,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import ServerStatus from "./components/ServerStatus";
+import AddDomainForm from "./components/AddDomainForm";
 import startUptimeCheckInterval from "./services/uptime";
 import { getUptimes } from "./redux/selectors";
 
@@ -25,6 +26,8 @@ function App({ uptimes }) {
       {map(uptimes, ({ domain }) => (
         <ServerStatus key={domain} domain={domain} />
       ))}
+
+      <AddDomainForm />
     </div>
   );
 }

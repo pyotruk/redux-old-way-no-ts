@@ -7,28 +7,25 @@ const DEFAULT_DOMAINS_TO_CHECK = [
   "gmail.com"
 ];
 
-function uptimes(state = {}, action) {
+const initialState = Object.fromEntries(DEFAULT_DOMAINS_TO_CHECK.map(domain => [domain, { domain }]));
+
+function uptimes(state = initialState, action) {
   switch (action.type) {
     case "SET_UPTIME":
       return {
         ...state,
         [action.payload.data.domain]: action.payload.data
       };
-    default:
-      return state;
-  }
-}
-
-function domains(state = DEFAULT_DOMAINS_TO_CHECK, action) {
-  switch (action.type) {
     case "ADD_DOMAIN":
-      return [...state, action.payload];
+      return {
+        ...state,
+        [action.payload]: {domain: action.payload}
+      };
     default:
       return state;
   }
 }
 
 export default combineReducers({
-  uptimes,
-  domains,
+  uptimes
 });

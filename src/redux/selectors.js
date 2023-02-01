@@ -1,3 +1,5 @@
+import store from "./store";
+
 export const getUptimes = state => state.uptimes;
 
 export const getUptimeByDomain = (state, domain) => state.uptimes[domain];
@@ -11,4 +13,4 @@ export const getLatencyByDomain = (state, domain) =>
 export const getStatusByDomain = (state, domain) =>
   state.uptimes[domain].status ? "OK" : "FAILED";
 
-export const getDomains = state => state.domains;
+export const getDomains = (state = store.getState()) => Object.keys(state.uptimes);
