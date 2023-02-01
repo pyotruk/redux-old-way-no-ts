@@ -23,7 +23,7 @@ function App({ uptimes }) {
       </div>
 
       {map(uptimes, ({ domain }) => (
-        <ServerStatus domain={domain} />
+        <ServerStatus key={domain} domain={domain} />
       ))}
     </div>
   );
