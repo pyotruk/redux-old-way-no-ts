@@ -7,3 +7,11 @@ export const setUptime = data =>
       data
     }
   });
+
+export const addDomain = domain =>
+    store.dispatch({
+        type: "ADD_DOMAIN",
+        payload: {
+            domain
+        }
+    });

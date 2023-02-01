@@ -1,16 +1,9 @@
 import axios from "axios";
-
+import store from "../redux/store";
 import { setUptime } from "../redux/actions";
 
-const DOMAINS_TO_CHECK = [
-  "passfoo.com",
-  "failxx.com",
-  "salesforce.com",
-  "gmail.com"
-];
-
 const checkUptime = async () => {
-  for (const domain of DOMAINS_TO_CHECK) {
+  for (const domain of store.getState().domains) {
     /**
      * This endpoint is a dummy endpoint we have implemented for the purpose of this challenge.
      *
