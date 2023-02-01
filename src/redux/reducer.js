@@ -1,14 +1,14 @@
 import { combineReducers } from "redux";
 
-function uptimes(action = {}, state) {
-  switch (state.type) {
+function uptimes(state = {}, action) {
+  switch (action.type) {
     case "SET_UPTIME":
       return {
-        ...action,
-        [state.payload.data.domain]: state.payload.data
+        ...state,
+        [action.payload.data.domain]: action.payload.data
       };
     default:
-      return action;
+      return state;
   }
 }
 
