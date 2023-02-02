@@ -1,10 +1,8 @@
 import { combineReducers } from "redux";
 
 const DEFAULT_DOMAINS_TO_CHECK = [
-  "passfoo.com",
-  "failxx.com",
-  "salesforce.com",
-  "gmail.com"
+  "google.com",
+  "yandex.ru"
 ];
 
 const initialState = Object.fromEntries(DEFAULT_DOMAINS_TO_CHECK.map(domain => [domain, { domain }]));

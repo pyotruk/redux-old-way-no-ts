@@ -4,18 +4,9 @@ import { getDomains } from "../redux/selectors";
 
 const checkUptime = async () => {
   for (const domain of getDomains()) {
-    /**
-     * This endpoint is a dummy endpoint we have implemented for the purpose of this challenge.
-     *
-     * Some gotchas that you should know:
-     *
-     * - Any domain that starts with "pass___" always returns 'status: OK'
-     * - Any domain that starts with "fail___" always returns 'status: FAILED'
-     * - All other domains return a status of OK vs FAILED randomly
-     */
-    const url = `https://uptime-checker.tryprospect.repl.co/status?domain=${domain}`;
+    const url = `https://uptime-checker.com/status?domain=${domain}`;
     const response = await axios.get(url);
-    // {"domain":"passfoo.com","lastChecked":1675279964318,"latency":143,"status":"OK","httpStatusCode":200}
+    // {"domain":"foo.com","lastChecked":1675279964318,"latency":143,"status":"OK","httpStatusCode":200}
 
     setUptime(response.data);
   }
